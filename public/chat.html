@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <link rel="stylesheet" href="css/style.css">
+  <title>Kira - Realtime Chatting Web App</title>
+</head>
+<body>
+  <div class="chat-container">
+    <header class="chat-header">
+    	<h1 style="letter-spacing: 0.4rem;"><i class="fas fa-comment-dots"></i>  KIRA</h1>
+      <a href="index.html" style="background-color: red; color: white;" class="btn btn2">Leave Room </a>
+   
+      <div class="navigation-btn" id="navigation">
+        <i class="fas fa-bars fa-2x" id="toggle-btn"></i>
+      </div>  
+      <ul  class="nav-btn-none" id="nav-btn" >
+        <li style="margin-bottom: 20px;"> <a href="index.html" class="btn" style="background-color: red; color: white;" >Leave Room </a></li>
+         <li style="margin-bottom: 20px;">
+          <h3 style="padding-bottom: 20px;"><i class="fas fa-comments"></i> Room Name:</h3>
+           <h2 class="room-name"></h2> 
+         </li>
+      
+        <li > 
+          <h3><i class="fas fa-users"></i>   Online Users</h3>
+           <ul class= "users">
+            
+          </ul>  
+     
+      </li>
+      </ul>
+    
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 class="room-name"></h2>
+        <h3><i class="fas fa-users"></i>   Online Users</h3>
+        <ul class="users" > 
+          
+        </ul>
+      </div>
+      <div id="chat-messages">
+      </div>
+     
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i>  <span class="send">Send</span> </button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  $("#toggle-btn").click(function(){
+ if($('ul#nav-btn').hasClass("nav-btn-none")){
+  $('ul#nav-btn').removeClass("nav-btn-none");
+  $('ul#nav-btn').addClass("nav-btn");
+ }
+ else{
+  $('ul#nav-btn').addClass("nav-btn-none");
+  $('ul#nav-btn').removeClass("nav-btn");
+ }
+  });
+
+  </script>
+</body>
+</html>
